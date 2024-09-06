@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, startTransition } from "react";
 
 function UserForm() {
   const [users, setUsers] = useState([]);
@@ -13,8 +13,10 @@ function UserForm() {
 
     console.log("Adicionando usuário:", { name, email });
 
-    setUsers((prev) => [...prev, { name, email }]);
-    setStatusMessage("Usuário adicionado com sucesso!" + Math.random());
+    startTransition(() => {
+      setUsers((prev) => [...prev, { name, email }]);
+      setStatusMessage("Usuário adicionado com sucesso!" + Math.random());
+    });
   }
 
   useEffect(() => {

@@ -5,6 +5,8 @@ const FormState = () => {
     const name = formData.get("name");
     const age = formData.get("age");
 
+    console.log(prevState);
+
     if (age >= 18) {
       return {
         success: true,

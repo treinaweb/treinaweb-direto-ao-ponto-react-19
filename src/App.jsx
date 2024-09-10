@@ -1,10 +1,9 @@
 import './App.css'
-import FormState from './components/FormState'
-import UserForm from './components/UserForm'
+import FormStatus from './components/FormStatus'
 
 function App() {
   return (
-    <FormState />
+    <FormStatus />
   )
 }
 

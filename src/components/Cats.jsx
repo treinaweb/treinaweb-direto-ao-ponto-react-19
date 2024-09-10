@@ -1,21 +1,19 @@
 import { Suspense, use } from 'react';
+import { CatsContext } from './CatsContext';
 
 function Cats() {
   return (
     <div>
-    <Suspense fallback={<h3>Carregando imagens...</h3>}>
-      <ListCats />
-    </Suspense>
+      <Suspense fallback={<h3>Carregando Imagens...</h3>}>
+        <ListCats />
+        <CatCount />
+      </Suspense>
     </div>
   )
 }
 
-async function fetchCats() {
-  const res = await fetch("https://api.thecatapi.com/v1/images/search?limit=10");
-  return res.json();
-}
-
 function ListCats() {
+  const fetchCats = use(CatsContext);
   const cats = use(fetchCats());
 
   return (
@@ -27,6 +25,13 @@ function ListCats() {
       ))}
     </ul>
   )
+}
+
+function CatCount() {
+  const fetchCats = use(CatsContext);
+  const cats = use(fetchCats());
+
+  return <p>Total de Gatos: {cats.length}</p>
 }
 
 export default Cats;

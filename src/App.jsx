@@ -1,12 +1,11 @@
 import './App.css'
 import Cats from './components/Cats'
 import { CatsContext } from './components/CatsContext';
+import ParentComponent from './components/Ref';
 
 function App() {
   return (
-  <CatsContext.Provider value={CatsContext._currentValue}>
-    <Cats />
-  </CatsContext.Provider>
+  <ParentComponent />
   );
 }
 

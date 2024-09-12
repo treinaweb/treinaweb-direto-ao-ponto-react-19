@@ -1,11 +1,9 @@
 import './App.css'
-import Cats from './components/Cats'
-import { CatsContext } from './components/CatsContext';
-import ParentComponent from './components/Ref';
+import FormStatusOptimistic from './components/Optimistic';
 
 function App() {
   return (
-  <ParentComponent />
+  <FormStatusOptimistic />
   );
 }
 
